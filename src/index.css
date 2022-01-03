@@ -3,17 +3,15 @@
   src: url(../assets/Fonts/Roboto/Roboto-Medium.ttf);
 }
 body {
-  background-color: aliceblue;
   display: flex;
   margin-bottom: 8px;
+  
+  
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* #root{
-  background-color: darkgray;
-  border-radius: 13px;
-  width: 430px;
-  height: 505px;
-} */
+#root{
+  display: flex;
+}

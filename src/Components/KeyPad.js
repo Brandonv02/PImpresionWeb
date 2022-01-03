@@ -2,6 +2,9 @@ import React, { Fragment, useState } from 'react'
 import './KeyPad.css';
 import { useNavigate } from 'react-router-dom'
 // import Swal from 'sweetalert2'
+import Fondo from '../Img/fondo5.png'
+
+
 
 export default function KeyPad() {
 
@@ -10,24 +13,38 @@ export default function KeyPad() {
   const handleClick = () => {
     navigate('/Cards');
 }
+  // const maxLengthCheck = (object) => {
+  //   if (object.target.value.length > object.target.maxLength) {
+  //   object.target.value = object.target.value.slice(0, object.target.maxLength)
+  //     }
+  //   }
 
-  const [prueba, setPrueba] = useState("")
+  const [prueba, setPrueba] = useState("");
+  const [cedula ] = useState({campo: '', valido: null});
 
   return (
     <Fragment >
+
+      <div className="fondo">
+        <img src={Fondo} alt="fondo" className="fondo-img"/>
+      </div>
       <div className="Key">
+        
+        <div className='Inputt'>
         <div className='Tittle'>
-          <h1 className='tittle-text'>Ingrese su cedula..</h1>
+          <h1 className='tittle-text'>Ingrese su cedula</h1>
         </div>
 
-        <div className='Inputt'>
           <input
-          id="keyInput"
-          type="text"
-          value={prueba}
-          autoComplete="off"
-          onChange={() => false}
-          required
+            estado={cedula}
+            placeholder="Numero de cedula"
+            id="keyInput"
+            type="number"
+            // maxlength="10"
+            // onInput={this.maxLengthCheck}
+            value={prueba}
+            autoComplete="off"
+            onChange={() => false}
           />
         </div>
 
@@ -69,13 +86,13 @@ export default function KeyPad() {
           </div>
 
           <div className='Button'>
-            <button className="KeyPad_Button" type='button' onClick={() => setPrueba(prueba.slice(0, -1))}>
+            <button className="KeyPad_Button btn-danger" type='button' onClick={() => setPrueba(prueba.slice(0, -1))}>
               Borrar
             </button>
             <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
               0
             </button>
-            <button className="KeyPad_Button" type='button' onClick={ handleClick }>
+            <button className="KeyPad_Button btn-success" type='button' onClick={ handleClick }>
               Continuar
             </button>
           </div>
