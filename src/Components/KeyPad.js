@@ -76,7 +76,7 @@ import Fondo from '../Img/fondo5.png'
               6
             </button>
           </div>
-
+ 
           <div className='Button'>
             <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(7)}>
               7
