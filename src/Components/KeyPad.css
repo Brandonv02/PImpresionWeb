@@ -1,0 +1,68 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../../assets/Fonts/Roboto/Roboto-Medium.ttf);
+}
+body{
+  margin-bottom: 16px !important;
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(226, 128, 16);  
+  height: 97.5vh;
+  background: linear-gradient(
+  0deg,
+  rgb(218, 38, 38)40%,
+  rgb(241, 47, 47)45%,
+  rgb(236, 203, 222)100%);
+}
+.Key{
+  background-color: darkgray;
+  border-radius: 13px;
+  width: 430px;
+  height: 505px;
+}
+.Keypad{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.KeyPad_Button{
+    width: 96px;
+    height: 64px;
+    margin: 6px;
+    font-size: 19px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Roboto';
+}
+#keyInput{
+  height: 50px;
+  width: 297px;
+  margin: 6px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 20px;
+  outline: none;
+}
+.KeyPad_Button:hover{
+  box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273) !important;
+  transition: all 0.7s linear;
+  border: none;
+}
+.tittle-text{
+  align-items: center;
+  font-size: 43px;
+  margin-top: 24px;
+}
+.Inputt{
+  display: flex;
+  justify-content: center;
+}
+.Tittle{
+  display: flex;
+  justify-content: center;
+}
