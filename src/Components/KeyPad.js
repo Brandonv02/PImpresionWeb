@@ -1,18 +1,16 @@
 import React, { Fragment, useState } from 'react'
 import './KeyPad.css';
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 // import Swal from 'sweetalert2'
 import Fondo from '../Img/fondo5.png'
 
 
 
-export default function KeyPad() {
+ function KeyPad() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/Cards');
-}
+ 
   // const maxLengthCheck = (object) => {
   //   if (object.target.value.length > object.target.maxLength) {
   //   object.target.value = object.target.value.slice(0, object.target.maxLength)
@@ -20,8 +18,14 @@ export default function KeyPad() {
   //   }
 
   const [prueba, setPrueba] = useState("");
-  const [cedula ] = useState({campo: '', valido: null});
 
+  const onHandleClick = (number) =>  {
+    if(prueba.length < 10) {
+        setPrueba(`${prueba}${number}`)
+        onHandleClick(10)
+        }
+      }
+      
   return (
     <Fragment >
 
@@ -36,11 +40,11 @@ export default function KeyPad() {
         </div>
 
           <input
-            estado={cedula}
+            // estado={cedula}
             placeholder="Numero de cedula"
             id="keyInput"
             type="number"
-            // maxlength="10"
+            maxlength="10"
             // onInput={this.maxLengthCheck}
             value={prueba}
             autoComplete="off"
@@ -50,37 +54,37 @@ export default function KeyPad() {
 
         <div className='Keypad'>
           <div className='Button'>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(1)}>
               1
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(2)}>
               2
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(3)}>
               3
             </button>
           </div>
 
           <div className='Button'>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(4)}>
               4
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(5)}>
               5
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(6)}>
               6
             </button>
           </div>
 
           <div className='Button'>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(7)}>
               7
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(8)}>
               8
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(9)}>
               9
             </button>
           </div>
@@ -89,17 +93,19 @@ export default function KeyPad() {
             <button className="KeyPad_Button btn-danger" type='button' onClick={() => setPrueba(prueba.slice(0, -1))}>
               Borrar
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => setPrueba(`${prueba}${e.target.innerHTML}`)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(9)}>
               0
             </button>
-            <button className="KeyPad_Button btn-success" type='button' onClick={ handleClick }>
+            <button className="KeyPad_Button btn-success" type='button' >
               Continuar
             </button>
           </div>
         </div>
       </div>
     </Fragment>
-  );
-}
+     );
+    }
+  
 
-export { KeyPad };
+
+  export { KeyPad };
