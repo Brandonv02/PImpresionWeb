@@ -22,10 +22,10 @@ import Fondo from '../Img/fondo5.png'
   const onHandleClick = (number) =>  {
     if(prueba.length < 10) {
         setPrueba(`${prueba}${number}`)
-        onHandleClick(10)
+   
         }
       }
-      
+
   return (
     <Fragment >
 
@@ -93,7 +93,7 @@ import Fondo from '../Img/fondo5.png'
             <button className="KeyPad_Button btn-danger" type='button' onClick={() => setPrueba(prueba.slice(0, -1))}>
               Borrar
             </button>
-            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(9)}>
+            <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(0)}>
               0
             </button>
             <button className="KeyPad_Button btn-success" type='button' >
