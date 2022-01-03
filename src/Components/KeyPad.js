@@ -17,7 +17,7 @@ export default function KeyPad() {
     <Fragment >
       <div className="Key">
         <div className='Tittle'>
-          <h1 className='tittle-text'>Ingrese su cedula</h1>
+          <h1 className='tittle-text'>Ingrese su cedula..</h1>
         </div>
 
         <div className='Inputt'>
