@@ -9,7 +9,7 @@ body{
   justify-content: center;
   align-items: center;
   height: 97.5vh;
-  background: url("../Img/fondoWeb.png");
+  
 }
 .fondo{
   display: flex;

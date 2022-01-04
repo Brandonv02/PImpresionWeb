@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from 'react'
 import './KeyPad.css';
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import Swal from 'sweetalert2'
 import Fondo from '../Img/fondo5.png'
 
 
 
+
  function KeyPad() {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
  
   // const maxLengthCheck = (object) => {
@@ -18,6 +19,10 @@ import Fondo from '../Img/fondo5.png'
   //   }
 
   const [prueba, setPrueba] = useState("");
+
+  const HandleClick = () => {
+    navigate("/Cards")
+  }
 
   const onHandleClick = (number) =>  {
     if(prueba.length < 10) {
@@ -96,7 +101,7 @@ import Fondo from '../Img/fondo5.png'
             <button className="KeyPad_Button" type='button' onClick={(e) => onHandleClick(0)}>
               0
             </button>
-            <button className="KeyPad_Button btn-success" type='button' >
+            <button className="KeyPad_Button btn-success" type='button' onClick={HandleClick}>
               Continuar
             </button>
           </div>
