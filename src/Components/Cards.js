@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "./Card";
 
-import image1 from '../Img/imgcard.png'
-import image2 from '../Img/imgcard.png'
-import image3 from '../Img/imgcard.png'
+import image1 from '../Img/AtenPrio.jpg'
+import image2 from '../Img/AtenGene.jpg'
+import image3 from '../Img/Atencion.jpg'
+import { Fragment } from "react/cjs/react.production.min";
 
 const cards = [
     {
@@ -28,15 +29,22 @@ const cards = [
 
 function Cards() {
     return (
-        <div className="container d-flex justify-content-center align-items-center h-100">
-        <div className="row">
-            {cards.map(({ title, image, url, id }) => (
-            <div className="col-md-4" key={id}>
-                <Card imageSource={image} title={title} url={url} />
+        <Fragment>
+            <div className="container-cards">
+                <div class="alert alert-success title" role="alert">
+                    ELIJE EL TIPO DE ATENCION QUE DESEAS
+                </div>
+                <div className="container d-flex justify-content-center align-items-center h-20">
+                <div className="row">
+                    {cards.map(({ title, image, url, id }) => (
+                    <div className="col-md-4 cartas" key={id}>
+                        <Card imageSource={image} title={title} url={url} />
+                    </div>
+                    ))}
+                </div>
+                </div>
             </div>
-            ))}
-        </div>
-        </div>
+        </Fragment>
     );
 }
 

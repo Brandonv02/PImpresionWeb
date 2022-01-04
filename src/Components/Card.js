@@ -7,13 +7,13 @@ function Card({ imageSource, title, text, url }) {
   const modal = () => {
     Swal.fire({
       icon: 'success',
-      title: 'Oops...',
-      text: 'Something went wrong!',
+      title: 'Espere',
+      text: 'Generando el turno',
     })
   }
 
   return (
-    <div className="card text-center bg-dark animate__animated animate__fadeInUp">
+    <div className="card text-center animate__animated ">
       <div className="overflow">
         <img src={imageSource} alt="a wallpaper" className="card-img-top" />
       </div>
@@ -25,9 +25,10 @@ function Card({ imageSource, title, text, url }) {
             : ""}
         </p>
         <button
-        className="btn btn-outline-secondary border-0"
+        type="button"
+        className="btn btn-primary  "
         onClick={ modal }>
-        Siguiente
+        <b>Pedir turno</b>
         </button>
       </div>
     </div>

@@ -1,10 +1,18 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../../assets/Fonts/Roboto/Roboto-Medium.ttf);
+}
+
 .card:hover {
-    box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273) !important;
-    transition: all 0.7s linear;
+    box-shadow: 5px 10px 20px 1px rgba(11, 22, 174, 0.273) !important;
+    transition: all 0.3s linear;
   }
-  
+  .card{
+    border: 2px #0099CC solid;
+  }
   .card-body {
     padding: 2rem 0 !important;
+    background-color: #0099CC;
   }
   
   .card-text {
@@ -14,6 +22,7 @@
   
   .overflow {
     overflow: hidden;
+    height: 233px;
   }
   
   .card-img-top {
@@ -24,4 +33,25 @@
   .card-img-top:hover {
     transform: scale(1.8);
   }
-  
+  .title{
+    text-align: center;
+    font-size: 20px;
+    width: 922px;
+    margin: auto;
+    font-family: 'Roboto';
+  }
+  .cartas{
+    width: 24% !important;
+  }
+  .row{
+    justify-content: center;
+  }
+  .btn{
+    background-color: white !important;
+    color: #0099CC !important;
+    
+  }
+  /* :hover.btn{
+    background-color: #0099CC !important;
+    color: white !important;
+  } */

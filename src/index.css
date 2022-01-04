@@ -16,6 +16,7 @@ code {
   height: 100%;
   align-items: center;
   justify-content: center;
+  /* flex-direction: column; */
   /* background-image: url("./Img/fondoWeb.png") ; */
   /* background-size: cover; */
 }
