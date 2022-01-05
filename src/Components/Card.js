@@ -8,7 +8,6 @@ import './/Card.css';
 function Card({ imageSource, title, text, url }) {
 
   const [turn, setTurn] = useState([]);
-    const IdHeadquarter = 5;
 
     const data = {
         "idGroup": 12,
@@ -20,10 +19,8 @@ function Card({ imageSource, title, text, url }) {
         
       }, [setTurn]);
 
-
   const modal = () => {
-
-
+    
     Axios({
       method: 'post',
       url: 'https://localhost:44358/api/Turn/GenerateFaceToFaceTurn',
@@ -39,12 +36,29 @@ function Card({ imageSource, title, text, url }) {
         .catch((error) => {
           console.log(error);
         });
-
-    Swal.fire({
-      icon: 'success',
-      title: turn.idTurno,
-      text: 'Generando el turno',
-    })
+    
+    let timerInterval
+      Swal.fire({
+        title: turn.idTurno,
+        html: 'Por favor espera :).',
+        timer: 7000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer')
+        }
+      })
   }
 
   return (
@@ -72,6 +86,8 @@ function Card({ imageSource, title, text, url }) {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
+  text: PropTypes.string,
+
   imageSource: PropTypes.string
 };
 

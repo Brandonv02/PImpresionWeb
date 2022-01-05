@@ -1,0 +1,48 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../../assets/Fonts/Roboto/Roboto-Medium.ttf);
+  }
+  
+  .card:hover {
+        box-shadow: 5px 10px 20px 1px rgba(11, 22, 174, 0.273) !important;
+        transition: all 0.3s linear;
+    }
+    .cardT{
+        border: 2px #0099CC solid;
+    }
+    .card-body {
+        padding: 2rem 0 !important;
+        background-color: #0099CC;
+    }
+    
+    .card-text {
+        padding: 0.3rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .overflow {
+        overflow: hidden;
+        height: 215px;
+    }
+
+    .titleT{
+        text-align: center;
+        font-size: 20px;
+        width: 847px;
+        margin: auto;
+        font-family: 'Roboto';
+    }
+    .cartasT{
+        width: 290px !important;
+    }
+    .row{
+        justify-content: center;
+    }
+    .btn{
+        background-color: white !important;
+        color: #0099CC !important;
+
+    }
+    .card-title{
+        font-size: 21px;
+    }

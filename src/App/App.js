@@ -6,6 +6,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import { HomeTD } from '../Views/HomeTD';
 
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
       <Routes>
         <Route
           path="/"
+          element={<HomeTD />}
+        />
+        <Route
+          path="/KeyPad"
           element={<Home />}
         />
         <Route
