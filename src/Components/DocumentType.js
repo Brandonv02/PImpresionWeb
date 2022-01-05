@@ -1,40 +1,40 @@
 import React from "react";
-import Card from "./Card";
 import image1 from '../Img/AtenPrio.jpg';
 import image2 from '../Img/AtenGene.jpg';
 import image3 from '../Img/Atencion.jpg';
 import { Fragment } from "react/cjs/react.production.min";
+import { Document } from "./Document";
 
-const cards = [
+const documentType = [
     {
         id: 1,
-        title: "ATENCION PRIORITARIA",
+        title: "CEDULA DE CUIDADANIA",
         image: image1,
     },
     {
         id: 2,
-        title: "ATENCION GENERAL",
+        title: "TARJETA DE IDENTIDAD",
         image: image2,
     },
     {
         id: 3,
-        title: "VEOLIA",
+        title: "CEDULA DE CUIDADANIA",
         image: image3,
     },
 ];
 
-function Cards() {
+function DocumentType() {
     return (
         <Fragment>
             <div className="container-cards">
-                <div class="alert alert-success title" role="alert">
-                    ELIJE EL TIPO DE ATENCION QUE DESEAS
+                <div class="alert alert-success titleT" role="alert">
+                    ELIJE EL TIPO DE DOCUMENTO
                 </div>
-                <div className="container d-flex justify-content-center align-items-center h-20">
+                <div className="container d-flex justify-content-center align-items-center ">
                 <div className="row">
-                    {cards.map(({ title, image, url, id }) => (
-                    <div className="col-md-4 cartas" key={id}>
-                        <Card imageSource={image} title={title} url={url} />
+                    {documentType.map(({ title, id }) => (
+                    <div className="col-md-4 cartasT" key={id}>
+                        <Document  title={title} />
                     </div>
                     ))}
                 </div>
@@ -44,4 +44,4 @@ function Cards() {
     );
 }
 
-export {Cards};
+export {DocumentType};

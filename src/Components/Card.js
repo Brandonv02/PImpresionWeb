@@ -5,11 +5,28 @@ import './/Card.css';
 
 function Card({ imageSource, title, text, url }) {
   const modal = () => {
-    Swal.fire({
-      icon: 'success',
-      title: 'Espere',
-      text: 'Generando el turno',
-    })
+    let timerInterval
+      Swal.fire({
+        title: 'Generando turno!',
+        html: 'Por favor espera :).',
+        timer: 7000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer')
+        }
+      })
   }
 
   return (
@@ -38,7 +55,6 @@ function Card({ imageSource, title, text, url }) {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
-  url: PropTypes.string,
   imageSource: PropTypes.string
 };
 

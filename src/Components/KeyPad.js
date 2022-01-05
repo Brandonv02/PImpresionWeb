@@ -1,34 +1,39 @@
 import React, { Fragment, useState } from 'react'
 import './KeyPad.css';
 import { useNavigate } from 'react-router-dom'
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 import Fondo from '../Img/fondo5.png'
 
 
-
-
- function KeyPad() {
+  function KeyPad() {
 
   const navigate = useNavigate();
 
- 
-  // const maxLengthCheck = (object) => {
-  //   if (object.target.value.length > object.target.maxLength) {
-  //   object.target.value = object.target.value.slice(0, object.target.maxLength)
-  //     }
-  //   }
-
   const [prueba, setPrueba] = useState("");
 
-  const HandleClick = () => {
-    navigate("/Cards")
-  }
+      const onHandleClick = (number) =>  {
+        if(prueba.length < 15) {
+            setPrueba(`${prueba}${number}`)
+            } else {
+              Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Max de numeros permitidos',
+              })
+            }
+      }
 
-  const onHandleClick = (number) =>  {
-    if(prueba.length < 10) {
-        setPrueba(`${prueba}${number}`)
-   
-        }
+      const HandleClick = () => {
+        if (prueba.length < 5 || prueba.length === 0){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Numero no valido',
+          })
+          
+          }if (prueba.length >= 5) {
+            navigate("/Cards")
+          }
       }
 
   return (
@@ -40,21 +45,21 @@ import Fondo from '../Img/fondo5.png'
       <div className="Key">
         
         <div className='Inputt'>
-        <div className='Tittle'>
-          <h1 className='tittle-text'>Ingrese su cedula</h1>
-        </div>
-
-          <input
-            // estado={cedula}
-            placeholder="Numero de cedula"
-            id="keyInput"
-            type="number"
-            maxlength="10"
-            // onInput={this.maxLengthCheck}
-            value={prueba}
-            autoComplete="off"
-            onChange={() => false}
-          />
+          <div className='Tittle'>
+            <h1 className='tittle-text'>Ingrese su numero</h1>
+          </div>
+            <input
+              // estado={cedula}
+              placeholder="Numero de identificacion"
+              id="keyInput"
+              type="text"
+              maxlength="10"
+              // onInput={this.maxLengthCheck}
+              value={prueba}
+              autoComplete="off"
+              onChange={() => false}
+              required
+            />
         </div>
 
         <div className='Keypad'>
