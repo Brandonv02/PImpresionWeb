@@ -14,6 +14,7 @@
   .card-body {
     padding: 2rem 0 !important;
     background-color: #0099CC;
+    height: 180px;
   }
   
   .card-text {
@@ -39,7 +40,7 @@
   .title{
     text-align: center;
     font-size: 20px;
-    width: 797px;
+    width: 669px;
     margin: auto;
     font-family: 'Roboto';
   }
@@ -57,7 +58,17 @@
   .card-title{
     font-size: 21px;
   }
-  /* :hover.btn{
-    background-color: #0099CC !important;
-    color: white !important;
-  } */
+
+@media (max-width: 768px) {
+  .title{
+    width: 500px;
+    font-size: 19px;
+  }
+  .card{
+    width: auto;
+    height: 320px;
+  }
+  .overflow{
+    height: 137px;
+  }
+}

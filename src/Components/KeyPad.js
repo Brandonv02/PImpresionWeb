@@ -62,6 +62,7 @@ function KeyPad() {
           </div>
             <input
               // estado={cedula}
+              className="Keyinput"
               placeholder="Numero de identificacion"
               id="keyInput"
               type="text"

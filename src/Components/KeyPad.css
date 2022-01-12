@@ -8,9 +8,8 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 97.5vh;
-  
 }
+
 .fondo{
   display: flex;
   justify-content: flex-start;
@@ -77,4 +76,31 @@ body{
 .Tittle{
   display: flex;
   justify-content: center;
+}
+
+
+ /* TABLET  */
+@media (max-width: 768px) {
+  .fondo-img{
+    width: 170px;
+    height: 230px;
+  }
+  .tittle-text{
+    font-size: 22px;
+  }
+  #keyInput{
+    width: 255px;
+  }
+  .KeyPad_Button{
+    width: 83px;
+    height: 51px;
+    margin: 6px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .fondo-img{
+    margin-bottom: 0px;
+  }
 }
