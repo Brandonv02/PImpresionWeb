@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+
 import PropTypes from "prop-types";
 import Swal from 'sweetalert2'
 import './/Card.css';
 
 function Card({ imageSource, title, text, url }) {
+
+  const [turn, setTurn] = useState([]);
+
+    const data = {
+        "idGroup": 12,
+        "strHeadquarterCode": 1,
+        "strIdentification": "11121114201"
+    }
+
+    useEffect(() => {
+        
+      }, [setTurn]);
+
   const modal = () => {
+    
+    Axios({
+      method: 'post',
+      url: 'https://localhost:44358/api/Turn/GenerateFaceToFaceTurn',
+      data: JSON.stringify(data),
+      config: { headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json' 
+        }}
+      })
+        .then((response) => {
+        setTurn(response.data.idTurno);
+      })
+        .catch((error) => {
+          console.log(error);
+        });
+    
     let timerInterval
       Swal.fire({
-        title: 'Generando turno!',
+        title: turn.idTurno,
         html: 'Por favor espera :).',
         timer: 7000,
         timerProgressBar: true,
@@ -55,6 +87,7 @@ function Card({ imageSource, title, text, url }) {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
+
   imageSource: PropTypes.string
 };
 
