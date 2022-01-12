@@ -1,64 +1,48 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { useSelector, useDispatch } from 'react-redux'
 
 import PropTypes from "prop-types";
 import Swal from 'sweetalert2'
 import './/Card.css';
 
-function Card({ imageSource, title, text, url }) {
+function Card({ imageSource, title, text }) {
 
   const [turn, setTurn] = useState([]);
 
-    const data = {
-        "idGroup": 12,
-        "strHeadquarterCode": 1,
-        "strIdentification": "11121114201"
-    }
+  var sendingInformation = new FormData();
+
+  sendingInformation.append("idGroup", 12);
+  sendingInformation.append("strHeadquarterCode", 1);
+  sendingInformation.append("strIdentification", useSelector((state) => state.turnInformation.strIdentification));
 
     useEffect(() => {
         
       }, [setTurn]);
 
   const modal = () => {
-    
     Axios({
       method: 'post',
       url: 'https://localhost:44358/api/Turn/GenerateFaceToFaceTurn',
-      data: JSON.stringify(data),
+      data: sendingInformation,
       config: { headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json' 
+          "Content-Type": "application/json charset=utf8" 
         }}
       })
         .then((response) => {
-        setTurn(response.data.idTurno);
+        setTurn(response.data);
+        console.log(sendingInformation);
+        Swal.fire({
+          icon: 'success',
+          title: 'Turno generado',
+          text: "Su turno es:  " + response.data.nroTurno
+        })
       })
         .catch((error) => {
           console.log(error);
         });
     
-    let timerInterval
-      Swal.fire({
-        title: turn.idTurno,
-        html: 'Por favor espera :).',
-        timer: 7000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading()
-          const b = Swal.getHtmlContainer().querySelector('b')
-          timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
-          }, 100)
-        },
-        willClose: () => {
-          clearInterval(timerInterval)
-        }
-      }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log('I was closed by the timer')
-        }
-      })
+        
   }
 
   return (

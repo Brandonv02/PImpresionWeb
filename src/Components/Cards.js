@@ -28,7 +28,7 @@ function Cards() {
     return (
         <Fragment>
             <div className="container-cards">
-                <div class="alert alert-success title" role="alert">
+                <div className="alert alert-success title" role="alert">
                     ELIJE EL TIPO DE ATENCION QUE DESEAS
                 </div>
                 <div className="container d-flex justify-content-center align-items-center h-20">

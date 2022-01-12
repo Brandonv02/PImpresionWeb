@@ -4,12 +4,18 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Fondo from '../Img/fondo5.png'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { changeTurnIdentification } from '../Features/Counter/counterSlice'
 
-  function KeyPad() {
+
+function KeyPad() {
+
+  var [prueba, setPrueba] = useState("");
+
+  //var y = useSelector((state) => state.turnInformation.strIdentification)
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
-
-  const [prueba, setPrueba] = useState("");
 
       const onHandleClick = (number) =>  {
         if(prueba.length < 15) {
@@ -18,7 +24,7 @@ import Fondo from '../Img/fondo5.png'
               Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
-                text: 'Max de numeros permitidos',
+                text: 'Max de números permitidos',
               })
             }
       }
@@ -28,12 +34,18 @@ import Fondo from '../Img/fondo5.png'
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Numero no valido',
+            text: 'Número no valido',
           })
           
           }if (prueba.length >= 5) {
+            dispatch(changeTurnIdentification(prueba));
+            //console.log(y.state.strIdentification);
             navigate("/Cards")
           }
+      }
+
+      function changeState(){
+        return 
       }
 
   return (
@@ -53,7 +65,7 @@ import Fondo from '../Img/fondo5.png'
               placeholder="Numero de identificacion"
               id="keyInput"
               type="text"
-              maxlength="10"
+              maxLength="10"
               // onInput={this.maxLengthCheck}
               value={prueba}
               autoComplete="off"
