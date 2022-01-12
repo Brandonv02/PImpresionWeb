@@ -8,7 +8,7 @@ import { Document } from "./Document";
 const documentType = [
     {
         id: 1,
-        title: "CEDULA DE CUIDADANIA",
+        title: "CEDULA DE CIUDADANIA",
         image: image1,
     },
     {
@@ -18,7 +18,7 @@ const documentType = [
     },
     {
         id: 3,
-        title: "CEDULA DE CUIDADANIA",
+        title: "CEDULA DE CIUDADANIA",
         image: image3,
     },
 ];

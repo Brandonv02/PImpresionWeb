@@ -18,7 +18,7 @@ const cards = [
     },
     {
         id: 3,
-        title: "VEOLIA",
+        title: "ATENCION GENERAL",
         image: image3,
     },
 ];

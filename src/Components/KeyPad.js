@@ -50,6 +50,7 @@ import Fondo from '../Img/fondo5.png'
           </div>
             <input
               // estado={cedula}
+              className="Keyinput"
               placeholder="Numero de identificacion"
               id="keyInput"
               type="text"

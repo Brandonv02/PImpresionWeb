@@ -1,9 +1,9 @@
 @font-face {
     font-family: Roboto;
     src: url(../../assets/Fonts/Roboto/Roboto-Medium.ttf);
-  }
-  
-  .card:hover {
+    }
+
+    .card:hover {
         box-shadow: 5px 10px 20px 1px rgba(11, 22, 174, 0.273) !important;
         transition: all 0.3s linear;
     }
@@ -14,12 +14,12 @@
         padding: 2rem 0 !important;
         background-color: #0099CC;
     }
-    
+
     .card-text {
         padding: 0.3rem 1rem;
         font-size: 1rem;
     }
-    
+
     .overflow {
         overflow: hidden;
         height: 215px;
@@ -45,4 +45,18 @@
     }
     .card-title{
         font-size: 21px;
+    }
+
+
+    @media (max-width: 768px) {
+        .titleT{
+            font-size: 20px;
+            width: 667px;
+        }
+        .cartasT{
+            width: 230px !important;
+        }
+        .card-title{
+            font-size: 19px;
+        }
     }
