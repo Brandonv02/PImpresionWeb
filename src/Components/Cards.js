@@ -10,6 +10,7 @@ const cards = [
         id: 1,
         title: "ATENCION PRIORITARIA",
         image: image1,
+        
     },
     {
         id: 2,
