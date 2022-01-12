@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import './/Document.css';
 import { useNavigate } from 'react-router-dom'
 
-function Document({ imageSource, title, text, url }) {
+function Document({ title, abbreviation }) {
 
 const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ const navigate = useNavigate();
       <div className="card-body text-light">
         <h4 className="card-title">{title}</h4>
         <p className="card-text text-secondary">
-          {text
-            ? text
+          {abbreviation
+            ? abbreviation
             : ""}
         </p>
         <button
@@ -34,8 +34,8 @@ const navigate = useNavigate();
 }
 
 Document.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string,
+  title: PropTypes.string,
+  abbreviation: PropTypes.string,
 };
 
 export {Document};
